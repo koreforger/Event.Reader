@@ -1,0 +1,9 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/EventReader/EventReader.csproj" />
+    <Project Path="src/Event.Data/Event.Data.csproj" />
+  </Folder>
+  <Folder Name="/tst/">
+    <Project Path="tst/EventReader.Tests/EventReader.Tests.csproj" />
+  </Folder>
+</Solution>
