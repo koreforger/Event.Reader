@@ -1,8 +1,8 @@
 using EventReader.Scripts.API.Data;
 using EventReader.Scripts.API.Options;
 using EventReader.Scripts.API.Services;
-using KF.Scripts.Core;
-using KF.Scripts.Interfaces;
+using KoreForge.Scripts.Core;
+using KoreForge.Scripts.Interfaces;
 using KoreForge.Jex;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;

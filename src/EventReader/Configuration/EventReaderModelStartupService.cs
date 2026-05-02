@@ -7,7 +7,7 @@ namespace EventReader.Configuration;
 /// Eagerly hydrates the <see cref="EventReaderRuntimeModelProvider"/> from the database at
 /// host startup, before any hosted service begins consuming Kafka messages.
 /// <para>
-/// Without this, the provider sits at version 0 (empty model) until the first KF.Settings
+/// Without this, the provider sits at version 0 (empty model) until the first KoreForge.Settings
 /// poll-cycle fires a config-reload token — which can be seconds to minutes after launch.
 /// By implementing <see cref="IHostedService"/> directly (not <see cref="BackgroundService"/>),
 /// <see cref="StartAsync"/> is awaited by the host before any subsequent service starts.
@@ -33,11 +33,11 @@ internal sealed class EventReaderModelStartupService(
         catch (Exception ex) when (ex is not OperationCanceledException)
         {
             // Log but do not rethrow — the system can start with an empty model and reload
-            // via KF.Settings polling. Failing here would block the entire host from starting.
+            // via KoreForge.Settings polling. Failing here would block the entire host from starting.
             log.LogError(
                 ex,
                 "EventReader runtime model initial load failed; starting with empty model (version 0). " +
-                "Kafka consumption will be paused until the model is loaded via KF.Settings reload.");
+                "Kafka consumption will be paused until the model is loaded via KoreForge.Settings reload.");
         }
     }
 

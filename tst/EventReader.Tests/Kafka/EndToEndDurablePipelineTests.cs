@@ -6,7 +6,7 @@ using EventReader.Configuration;
 using EventReader.Kafka;
 using EventReader.Logging;
 using EventReader.Monitoring;
-using KF.Kafka.Consumer.Batch;
+using KoreForge.Kafka.Consumer.Batch;
 using Event.Streaming.Processing.Monitoring;
 using Event.Streaming.Processing.Runtime;
 using Event.Streaming.Processing.WorkStore;
@@ -128,8 +128,8 @@ public sealed class EndToEndDurablePipelineTests : IDisposable
                     Offset = cr.Offset,
                     Message = new Message<byte[], byte[]>
                     {
-                        Key = cr.Message.Key is not null ? Encoding.UTF8.GetBytes(cr.Message.Key) : null,
-                        Value = cr.Message.Value is not null ? Encoding.UTF8.GetBytes(cr.Message.Value) : null,
+                        Key = cr.Message.Key is not null ? Encoding.UTF8.GetBytes(cr.Message.Key) : [],
+                        Value = cr.Message.Value is not null ? Encoding.UTF8.GetBytes(cr.Message.Value) : [],
                         Timestamp = cr.Message.Timestamp,
                     },
                 });

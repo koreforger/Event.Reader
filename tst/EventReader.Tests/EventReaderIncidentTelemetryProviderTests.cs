@@ -1,7 +1,7 @@
 using Confluent.Kafka;
 using EventReader.Configuration;
 using EventReader.Monitoring;
-using KF.Kafka.Consumer.Abstractions;
+using KoreForge.Kafka.Consumer.Abstractions;
 using Microsoft.Extensions.Configuration;
 
 namespace EventReader.Tests;

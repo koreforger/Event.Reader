@@ -7,7 +7,7 @@ using Event.Streaming.Out.Dlq;
 using Event.Streaming.Out.Routing;
 using Event.Streaming.Processing.Envelopes;
 using Event.Streaming.Processing.Runtime;
-using KF.Time;
+using KoreForge.Time;
 
 namespace EventReader.Output;
 

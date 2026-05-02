@@ -8,7 +8,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Diagnostics.HealthChecks;
 using Microsoft.Extensions.Logging.Abstractions;
 using Microsoft.Extensions.Options;
-using KfHealthStatus = Event.Streaming.Processing.Monitoring.HealthStatus;
+using StreamingHealthStatus = Event.Streaming.Processing.Monitoring.HealthStatus;
 using MsHealthStatus = Microsoft.Extensions.Diagnostics.HealthChecks.HealthStatus;
 
 namespace EventReader.Tests.Configuration;
@@ -312,7 +312,7 @@ public sealed class EventReaderSettingsAndHealthTests
     {
         var snapshot = new EventReaderMonitoringSnapshot
         {
-            Health = KfHealthStatus.Healthy,
+            Health = StreamingHealthStatus.Healthy,
             PipelineMetrics = new PipelineMetrics
             {
                 TotalProcessed = 10_000,
@@ -335,7 +335,7 @@ public sealed class EventReaderSettingsAndHealthTests
     {
         var snapshot = new EventReaderMonitoringSnapshot
         {
-            Health = KfHealthStatus.Unhealthy,
+            Health = StreamingHealthStatus.Unhealthy,
         };
         var check = new EventReaderKafkaOutputHealthCheck(snapshot);
         var context = new HealthCheckContext();

@@ -20,11 +20,11 @@ public static class EventReaderServiceCollectionExtensions
         var options = new EventReaderDurablePipelineOptions();
         configure(options);
 
-        // Event.Data factory — uses same connection string as KFSettings
+        // Event.Data factory — uses same connection string as KoreForgeSettings
         services.AddEventDataFactory(sp =>
         {
             var cfg = sp.GetRequiredService<IConfiguration>();
-            return cfg.GetConnectionString("KFSettings") ?? string.Empty;
+            return cfg.GetConnectionString("KoreForgeSettings") ?? string.Empty;
         });
 
         services.AddSingleton(new EventReaderShardWorkerPoolOptions

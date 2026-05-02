@@ -5,7 +5,7 @@ using EventReader.Configuration;
 using EventReader.Kafka;
 using EventReader.Logging;
 using EventReader.Monitoring;
-using KF.Kafka.Consumer.Batch;
+using KoreForge.Kafka.Consumer.Batch;
 using Event.Streaming.Processing.Monitoring;
 using Event.Streaming.Processing.Runtime;
 using Event.Streaming.Processing.WorkStore;

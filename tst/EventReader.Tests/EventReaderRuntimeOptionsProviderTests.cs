@@ -15,8 +15,8 @@ public sealed class EventReaderRuntimeOptionsProviderTests
         {
             ["EventReader:DiagnosticStage"] = "FullPipeline",
             ["EventReader:EnableDlq"] = "false",
-            ["KFSettings:InstanceId"] = "reader-a",
-            ["KFSettings:ClientAppVersion"] = "1.0.0",
+            ["KoreForgeSettings:InstanceId"] = "reader-a",
+            ["KoreForgeSettings:ClientAppVersion"] = "1.0.0",
         });
 
         var services = new ServiceCollection();

@@ -1,5 +1,5 @@
-using KF.Scripts.Interfaces;
-using KF.Scripts.Models;
+using KoreForge.Scripts.Interfaces;
+using KoreForge.Scripts.Models;
 using KoreForge.Jex;
 using Microsoft.Extensions.Logging;
 

@@ -1,6 +1,6 @@
 using EventReader.Scripts.API.Models;
 using EventReader.Scripts.API.Services;
-using KF.Scripts.Interfaces;
+using KoreForge.Scripts.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;

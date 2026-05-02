@@ -87,7 +87,7 @@ Notes:
 ```mermaid
 flowchart TB
     A[SQL Server: EventReader schema] --> B[EventReaderRuntimeModelProvider]
-    C[KF.Settings key: EventReader:ModelVersion] --> D[Configuration Reload Token]
+    C[KoreForge.Settings key: EventReader:ModelVersion] --> D[Configuration Reload Token]
     D --> B
     B --> E[Current Runtime Model Snapshot]
     E --> F[Kafka Batch Classifier]
@@ -97,7 +97,7 @@ flowchart TB
 
 Notes:
 - Runtime model entities are stored in SQL, not in IConfiguration payload trees.
-- KF.Settings only acts as a version-change trigger signal.
+- KoreForge.Settings only acts as a version-change trigger signal.
 - On startup, EventReader now performs an eager model load before consumers run.
 
 ## 3) Startup and Hosted Service Sequencing

@@ -1,6 +1,6 @@
 # Sample Walkthrough
 
-This document preserves the full self-contained sample that was previously shipped as a separate `SampleWebApp` project. The tests in `tst/KF.AppLifecycle.Tests` now serve as the primary executable demonstration of the library's features; this document shows the equivalent end-to-end wiring in a real ASP.NET Core host.
+This document preserves the full self-contained sample that was previously shipped as a separate `SampleWebApp` project. The tests in `tst/KoreForge.AppLifecycle.Tests` now serve as the primary executable demonstration of the library's features; this document shows the equivalent end-to-end wiring in a real ASP.NET Core host.
 
 ## Complete Program
 

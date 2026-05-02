@@ -1,9 +1,9 @@
 using EventReader.Monitoring;
 using Event.Streaming.Processing.Monitoring;
 using Event.Streaming.Processing.WorkStore;
-using KF.Web.HealthChecks;
+using KoreForge.Web.HealthChecks;
 using Microsoft.Extensions.Diagnostics.HealthChecks;
-using KfHealthStatus = Event.Streaming.Processing.Monitoring.HealthStatus;
+using StreamingHealthStatus = Event.Streaming.Processing.Monitoring.HealthStatus;
 
 namespace EventReader.Configuration;
 

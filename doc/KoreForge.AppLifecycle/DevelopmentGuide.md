@@ -4,14 +4,14 @@ This guide is for contributors extending the library. It captures the architectu
 
 ## Project Structure Recap
 
-- `src/KF.AppLifecycle`
+- `src/KoreForge.AppLifecycle`
   - `Flows/` unified flow engine and DSL internals.
   - `Hosting/` contexts and hosted services that wire the engine into the .NET host lifecycle.
   - `Scheduling/` trigger abstractions and scheduler definitions.
   - `Events/` async instrumentation surface.
   - `Options/` fluent configuration for startup, shutdown, scheduled flows, and behavior flags.
   - `Internal/` shared builder cores and helpers (not part of the public API).
-- `tst/KF.AppLifecycle.Tests`
+- `tst/KoreForge.AppLifecycle.Tests`
   - Covers flow execution, DSL validation, scheduler behavior, events, and host integration.
 
 ## External Dependencies
@@ -51,7 +51,7 @@ This library has no external time or clock dependencies. Scheduling uses `TimePr
 
 ## Testing Expectations
 
-- Add/modify tests in `tst/KF.AppLifecycle.Tests`.
+- Add/modify tests in `tst/KoreForge.AppLifecycle.Tests`.
 - Each new engine capability should include:
   - Unit tests at the flow level (`FlowExecutorTests`).
   - DSL validation tests if new builder rules are introduced.

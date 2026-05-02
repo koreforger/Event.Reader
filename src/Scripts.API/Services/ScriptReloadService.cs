@@ -1,5 +1,5 @@
 using System.Collections.Frozen;
-using KF.Scripts.Interfaces;
+using KoreForge.Scripts.Interfaces;
 using KoreForge.Jex;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;

@@ -5,7 +5,7 @@ namespace EventReader.Seek;
 
 /// <summary>
 /// Reads EventReader:Seek:* settings from IConfiguration.
-/// Settings are kept in the SQL-backed KFSettings store and refreshed via the live-reload
+/// Settings are kept in the SQL-backed KoreForgeSettings store and refreshed via the live-reload
 /// polling mechanism — no restart required to change seek behaviour.
 /// </summary>
 public sealed class SqlConsumerSeekOptionsProvider : IConsumerSeekOptionsProvider

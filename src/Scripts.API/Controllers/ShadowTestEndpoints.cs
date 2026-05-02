@@ -136,7 +136,7 @@ public static class ShadowTestEndpoints
     private static async Task<IResult> PromoteShadowTest(
         string sessionId,
         ShadowTestService shadowService,
-        KF.Scripts.Interfaces.IScriptStore scriptStore,
+        KoreForge.Scripts.Interfaces.IScriptStore scriptStore,
         CancellationToken ct)
     {
         var session = shadowService.GetSession(sessionId);
@@ -148,7 +148,7 @@ public static class ShadowTestEndpoints
             var existing = await scriptStore.GetByIdAsync(session.CandidateScriptId.Value, ct);
             if (existing is not null)
             {
-                var updated = await scriptStore.UpdateAsync(new KF.Scripts.Models.UpdateScriptRequest(
+                var updated = await scriptStore.UpdateAsync(new KoreForge.Scripts.Models.UpdateScriptRequest(
                     existing.ScriptId,
                     session.CandidateContent,
                     existing.Description,
@@ -163,7 +163,7 @@ public static class ShadowTestEndpoints
         }
 
         // Create a new script if no existing one
-        var created = await scriptStore.CreateAsync(new KF.Scripts.Models.CreateScriptRequest(
+        var created = await scriptStore.CreateAsync(new KoreForge.Scripts.Models.CreateScriptRequest(
             $"shadow-promoted-{session.FunctionId}-{DateTime.UtcNow:yyyyMMddHHmmss}",
             "extract",
             "jex",

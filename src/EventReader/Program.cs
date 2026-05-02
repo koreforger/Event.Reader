@@ -4,18 +4,18 @@ using EventReader.Kafka;
 using EventReader.Logging;
 using EventReader.Monitoring;
 using EventReader.Configuration;
-using KF.Settings.Extensions;
-using KF.Settings.Reload;
-using KF.Kafka.Configuration.Extensions;
-using KF.Metrics;
-using KF.Metrics.AspNet;
-using KF.Scripts.AspNet;
-using KF.Scripts.Core;
+using KoreForge.Settings.Extensions;
+using KoreForge.Settings.Reload;
+using KoreForge.Kafka.Configuration.Extensions;
+using KoreForge.Metrics;
+using KoreForge.Metrics.AspNet;
+using KoreForge.Scripts.AspNet;
+using KoreForge.Scripts.Core;
 using Event.Streaming.Processing.Monitoring;
 using Event.Streaming.Processing.Runtime;
 using Event.Streaming.Processing.WorkStore;
-using KF.Time;
-using KF.Web.HealthChecks;
+using KoreForge.Time;
+using KoreForge.Web.HealthChecks;
 using Microsoft.Extensions.Hosting;
 using KoreForge.Jex;
 using KoreForge.AppLifecycle;
@@ -23,8 +23,8 @@ using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Configuration.AddKFSettings();
-builder.Services.AddKFSettingsServices(builder.Configuration);
+builder.Configuration.AddKoreForgeSettings();
+builder.Services.AddKoreForgeSettingsServices(builder.Configuration);
 
 builder.Services.AddApplicationLifecycleManager(_ => { });
 builder.Services.AddGeneratedLogging();
@@ -101,8 +101,8 @@ builder.Services.AddSignalR();
 
 // -- Script + Function services --
 var scriptsConnStr = builder.Configuration["KoreForge:Settings:ConnectionString"]
-    ?? builder.Configuration.GetConnectionString("KFSettings")
-    ?? throw new InvalidOperationException("Connection string for KFSettings is required.");
+    ?? builder.Configuration.GetConnectionString("KoreForgeSettings")
+    ?? throw new InvalidOperationException("Connection string for KoreForgeSettings is required.");
 builder.Services.AddPooledDbContextFactory<Event.Data.EventDataContext>(opts =>
     opts.UseSqlServer(scriptsConnStr));
 builder.Services.AddKoreForgeScripts(opts =>

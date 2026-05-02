@@ -32,8 +32,8 @@
 ```text
 KoreForge.AppLifecycle
 ├─ src
-│  └─ KF.AppLifecycle
-│      ├─ KF.AppLifecycle.csproj
+│  └─ KoreForge.AppLifecycle
+│      ├─ KoreForge.AppLifecycle.csproj
 │      ├─ Flows
 │      ├─ Scheduling
 │      ├─ Hosting
@@ -41,7 +41,7 @@ KoreForge.AppLifecycle
 │      ├─ Options
 │      └─ Internal
 └─ tst
-   └─ KF.AppLifecycle.Tests
+   └─ KoreForge.AppLifecycle.Tests
        ├─ FlowExecutorTests.cs
        ├─ DslValidationTests.cs
        ├─ SchedulerTests.cs

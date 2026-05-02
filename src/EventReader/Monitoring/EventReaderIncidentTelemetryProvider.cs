@@ -1,6 +1,6 @@
 using Confluent.Kafka;
 using EventReader.Configuration;
-using KF.Kafka.Consumer.Abstractions;
+using KoreForge.Kafka.Consumer.Abstractions;
 using Event.Streaming.Processing.Monitoring;
 
 namespace EventReader.Monitoring;

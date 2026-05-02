@@ -3,8 +3,8 @@ using Confluent.Kafka;
 using EventReader.Configuration;
 using EventReader.Logging;
 using EventReader.Monitoring;
-using KF.Kafka.Consumer.Abstractions;
-using KF.Kafka.Consumer.Batch;
+using KoreForge.Kafka.Consumer.Abstractions;
+using KoreForge.Kafka.Consumer.Batch;
 using Event.Streaming.Processing.Runtime;
 using Event.Streaming.Processing.WorkStore;
 

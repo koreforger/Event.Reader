@@ -1,8 +1,8 @@
 using EventReader.Monitoring;
-using KF.Kafka.Configuration.Exceptions;
-using KF.Kafka.Configuration.Factory;
-using KF.Kafka.Consumer.Hosting;
-using KF.Metrics;
+using KoreForge.Kafka.Configuration.Exceptions;
+using KoreForge.Kafka.Configuration.Factory;
+using KoreForge.Kafka.Consumer.Hosting;
+using KoreForge.Metrics;
 using Microsoft.Extensions.Logging;
 
 namespace EventReader.Kafka;

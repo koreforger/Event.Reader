@@ -266,9 +266,9 @@ public sealed class SettingsController : ControllerBase
         string instanceId,
         CancellationToken cancellationToken)
     {
-        var connectionString = _config.GetConnectionString("KFSettings")
+        var connectionString = _config.GetConnectionString("KoreForgeSettings")
             ?? _config["KoreForge:Settings:ConnectionString"]
-            ?? _config["KFSettings:ConnectionString"];
+            ?? _config["KoreForgeSettings:ConnectionString"];
 
         if (string.IsNullOrWhiteSpace(connectionString))
         {
@@ -312,10 +312,10 @@ public sealed class SettingsController : ControllerBase
         string value,
         CancellationToken cancellationToken)
     {
-        var connectionString = _config.GetConnectionString("KFSettings")
+        var connectionString = _config.GetConnectionString("KoreForgeSettings")
             ?? _config["KoreForge:Settings:ConnectionString"]
-            ?? _config["KFSettings:ConnectionString"]
-            ?? throw new InvalidOperationException("KFSettings connection string is required.");
+            ?? _config["KoreForgeSettings:ConnectionString"]
+            ?? throw new InvalidOperationException("KoreForgeSettings connection string is required.");
 
         const string sql = """
             UPDATE dbo.Settings
@@ -351,10 +351,10 @@ public sealed class SettingsController : ControllerBase
         string key,
         CancellationToken cancellationToken)
     {
-        var connectionString = _config.GetConnectionString("KFSettings")
+        var connectionString = _config.GetConnectionString("KoreForgeSettings")
             ?? _config["KoreForge:Settings:ConnectionString"]
-            ?? _config["KFSettings:ConnectionString"]
-            ?? throw new InvalidOperationException("KFSettings connection string is required.");
+            ?? _config["KoreForgeSettings:ConnectionString"]
+            ?? throw new InvalidOperationException("KoreForgeSettings connection string is required.");
 
         var sql = id is not null
             ? "DELETE dbo.Settings WHERE ID = @id AND ApplicationId = @applicationId"
@@ -434,7 +434,7 @@ public sealed class SettingsController : ControllerBase
     private static bool IsUsefulConfigKey(string key) =>
         key.StartsWith("Kafka:", StringComparison.OrdinalIgnoreCase) ||
         key.StartsWith("EventReader:", StringComparison.OrdinalIgnoreCase) ||
-        key.StartsWith("KFSettings:", StringComparison.OrdinalIgnoreCase) ||
+        key.StartsWith("KoreForgeSettings:", StringComparison.OrdinalIgnoreCase) ||
         key.StartsWith("KoreForge:Settings:", StringComparison.OrdinalIgnoreCase) ||
         key.StartsWith("ConnectionStrings:", StringComparison.OrdinalIgnoreCase);
 

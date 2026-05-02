@@ -8,31 +8,43 @@ This solution uses **Semantic Versioning 2.0.0** with Git tags as the single sou
 
 | Setting | Value |
 | --- | --- |
-| Tag Prefix | `KoreForge.AppLifecycle/v` |
+| Tag Prefix | `KoreForge.Logging/v` |
 | Auto Increment | `minor` |
 | Default Pre-release | `alpha.0` |
 
-Example release tag: `KoreForge.AppLifecycle/v1.4.0`
+Example release tag: `KoreForge.Logging/v1.4.0`
 
 ## Versioning Scripts
 
-Version tags are managed with `bin/git-push-nuget.ps1`.
+This solution provides two scripts in the `scr/` folder to manage versions:
 
-### Check the current version
+### Get-Version.ps1
+
+Displays current version information:
 
 ```powershell
-# Recent release tags
-git tag --list "KoreForge.AppLifecycle/v*" --sort=-version:refname | Select-Object -First 10
-
-# Version MinVer will compute for the current commit
-dotnet build src/KoreForge.AppLifecycle/KoreForge.AppLifecycle.csproj -p:MinVerVerbosity=normal 2>&1 | Select-String MinVer
+.\scr\Get-Version.ps1
 ```
 
-### Create and push a release tag
+Output includes:
+- Tag prefix configuration
+- Latest release tag
+- Recent release history
+- Current commit and working tree status
+
+### Tag-Release.ps1
+
+Creates release tags:
 
 ```powershell
-# Push any uncommitted changes, create the annotated tag, and push it
-.\bin\git-push-nuget.ps1 -Version 1.2.0 -Note "Brief release note"
+# Create a tag locally
+.\scr\Tag-Release.ps1 -Version 1.2.0
+
+# Create and push to origin
+.\scr\Tag-Release.ps1 -Version 1.2.0 -Push
+
+# Overwrite an existing tag
+.\scr\Tag-Release.ps1 -Version 1.2.0 -Push -Force
 ```
 
 ## Semantic Versioning Rules
@@ -46,29 +58,33 @@ dotnet build src/KoreForge.AppLifecycle/KoreForge.AppLifecycle.csproj -p:MinVerV
 
 ## Release Workflow
 
-1. Ensure the working tree is clean and tests pass:
+1. Ensure the working tree is clean:
    ```powershell
-   .\bin\build-test.ps1
+   .\scr\Get-Version.ps1
    ```
 
-2. Decide the new SemVer (MAJOR.MINOR.PATCH) according to the rules above.
-
-3. Create and push the release tag (commits any pending changes first):
+2. Run all tests:
    ```powershell
-   .\bin\git-push-nuget.ps1 -Version 1.2.0 -Note "Add feature X"
+   .\scr\build-test.ps1
+   # or with coverage
+   .\scr\Test-Coverage.ps1
    ```
 
-4. Build and pack using the tagged version:
+3. Decide the new SemVer (MAJOR.MINOR.PATCH) according to the rules above.
+
+4. Create and push the release tag:
    ```powershell
-   dotnet pack src/KoreForge.AppLifecycle/KoreForge.AppLifecycle.csproj -c Release
+   .\scr\Tag-Release.ps1 -Version 1.2.0 -Push
    ```
 
-5. Verify the package version in the `artifacts/` folder matches your tag.
-
-6. Publish the packages to your NuGet feed:
+5. Build and pack:
    ```powershell
-   dotnet nuget push artifacts/KoreForge.AppLifecycle.<version>.nupkg --api-key <KEY> --source https://api.nuget.org/v3/index.json --skip-duplicate
+   .\scr\build-pack.ps1 -Configuration Release
    ```
+
+6. Verify the package version in the `artifacts/` folder matches your tag.
+
+7. Publish the packages to your NuGet feed.
 
 ## Pre-release and Development Builds
 
@@ -76,14 +92,14 @@ dotnet build src/KoreForge.AppLifecycle/KoreForge.AppLifecycle.csproj -p:MinVerV
 - These builds are suitable for internal consumption, previews, or testing feeds but should not be published as official releases.
 - To publish a preview release, use a pre-release tag like `1.4.0-beta.1`:
   ```powershell
-  .\bin\git-push-nuget.ps1 -Version 1.4.0-beta.1 -Note "Preview release"
+  .\scr\Tag-Release.ps1 -Version 1.4.0-beta.1 -Push
   ```
 
 ## Do's and Don'ts
 
 **Do:**
-  - ✅ Use `git tag --list "KoreForge.AppLifecycle/v*"` to check current version before releasing
-- ✅ Use `bin/git-push-nuget.ps1` to create version tags
+- ✅ Use `Get-Version.ps1` to check current version before releasing
+- ✅ Use `Tag-Release.ps1` to create version tags
 - ✅ Follow the SemVer rules when choosing MAJOR vs MINOR vs PATCH
 - ✅ Ensure tags are pushed to origin so CI sees the same version
 
@@ -96,11 +112,11 @@ dotnet build src/KoreForge.AppLifecycle/KoreForge.AppLifecycle.csproj -p:MinVerV
 
 | Scenario | Command |
 | --- | --- |
-| Check current version | `git tag --list "KoreForge.AppLifecycle/v*" --sort=-version:refname` |
-| Breaking change release | `.\bin\git-push-nuget.ps1 -Version 2.0.0 -Note "Breaking: ..."` |
-| New feature release | `.\bin\git-push-nuget.ps1 -Version 1.3.0 -Note "Add feature X"` |
-| Bug fix / patch release | `.\bin\git-push-nuget.ps1 -Version 1.2.1 -Note "Fix bug Y"` |
-| Preview/beta release | `.\bin\git-push-nuget.ps1 -Version 1.4.0-beta.1 -Note "Preview"` |
+| Check current version | `.\scr\Get-Version.ps1` |
+| Breaking change release | `.\scr\Tag-Release.ps1 -Version 2.0.0 -Push` |
+| New feature release | `.\scr\Tag-Release.ps1 -Version 1.3.0 -Push` |
+| Bug fix / patch release | `.\scr\Tag-Release.ps1 -Version 1.2.1 -Push` |
+| Preview/beta release | `.\scr\Tag-Release.ps1 -Version 1.4.0-beta.1 -Push` |
 
 ## Relation to Other KoreForge Libraries
 
@@ -115,7 +131,7 @@ MinVer configuration in `Directory.Build.props`:
 
 ```xml
 <PropertyGroup>
-  <MinVerTagPrefix>KoreForge.AppLifecycle/v</MinVerTagPrefix>
+  <MinVerTagPrefix>KoreForge.Logging/v</MinVerTagPrefix>
   <MinVerAutoIncrement>minor</MinVerAutoIncrement>
   <MinVerDefaultPreReleaseIdentifiers>alpha.0</MinVerDefaultPreReleaseIdentifiers>
 </PropertyGroup>
@@ -124,3 +140,5 @@ MinVer configuration in `Directory.Build.props`:
 This ensures:
 - `Version`, `PackageVersion`, `AssemblyVersion`, and `FileVersion` are all derived from Git tags
 - Consistent versioning across all packable projects in the solution
+
+

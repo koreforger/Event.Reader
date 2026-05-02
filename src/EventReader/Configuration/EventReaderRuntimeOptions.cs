@@ -25,8 +25,8 @@ public sealed class EventReaderRuntimeOptions
             EnableDlq = bool.TryParse(configuration["EventReader:EnableDlq"], out var enableDlq) && enableDlq,
             DlqTopic = configuration["EventReader:DlqTopic"] ?? "stream.dlq",
             ApplicationRole = configuration["EventReader:ApplicationRole"] ?? "reader",
-            InstanceId = configuration["KFSettings:InstanceId"] ?? configuration["KoreForge:Settings:Instance"] ?? "1",
-            Version = configuration["KFSettings:ClientAppVersion"] ?? configuration["KoreForge:Settings:ClientAppVersion"] ?? "1.0.0",
+            InstanceId = configuration["KoreForgeSettings:InstanceId"] ?? configuration["KoreForge:Settings:Instance"] ?? "1",
+            Version = configuration["KoreForgeSettings:ClientAppVersion"] ?? configuration["KoreForge:Settings:ClientAppVersion"] ?? "1.0.0",
         };
     }
 

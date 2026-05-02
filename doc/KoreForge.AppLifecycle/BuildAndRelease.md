@@ -44,7 +44,7 @@ Run scripts from any location:
 | Build (Debug) | `dotnet build` |
 | Build (Release) | `dotnet build -c Release` |
 | Build the solution explicitly | `dotnet build KoreForge.AppLifecycle.slnx -c Release` |
-| Build only the library | `dotnet build src/KF.AppLifecycle/KF.AppLifecycle.csproj` |
+| Build only the library | `dotnet build src/KoreForge.AppLifecycle/KoreForge.AppLifecycle.csproj` |
 
 ## Testing
 
@@ -91,7 +91,7 @@ Start-Process (Resolve-Path .\out\TestResults\coverage\index.html)
 
 | Task | Command |
 | --- | --- |
-| Pack NuGet (drops into `artifacts/`) | `dotnet pack src/KF.AppLifecycle/KF.AppLifecycle.csproj -c Release` |
+| Pack NuGet (drops into `artifacts/`) | `dotnet pack src/KoreForge.AppLifecycle/KoreForge.AppLifecycle.csproj -c Release` |
 | Inspect `.nupkg` | `dotnet nuget locals all --list` + `tar -tf artifacts/KoreForge.AppLifecycle.<version>.nupkg` |
 | Push to NuGet.org | `dotnet nuget push artifacts/KoreForge.AppLifecycle.<version>.nupkg --api-key <KEY> --source https://api.nuget.org/v3/index.json --skip-duplicate` |
 | Tag and push for CI | `.\bin\git-push-nuget.ps1 -Version 1.2.0 -Note "Add feature X"` |
@@ -106,7 +106,7 @@ Start-Process (Resolve-Path .\out\TestResults\coverage\index.html)
   dotnet restore
   dotnet build -c Release
   dotnet test -c Release --no-build
-  dotnet pack src/KF.AppLifecycle/KF.AppLifecycle.csproj -c Release
+  dotnet pack src/KoreForge.AppLifecycle/KoreForge.AppLifecycle.csproj -c Release
   ```
 
 
