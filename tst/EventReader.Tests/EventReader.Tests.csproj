@@ -19,7 +19,7 @@
     <Using Include="Xunit" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="EventReader" VersionOverride="1.0.2-alpha" />
-    <PackageReference Include="KoreForge.Jex" Version="1.0.2-alpha" />
+    <PackageReference Include="EventReader" VersionOverride="1.1.2" />
+    <PackageReference Include="KoreForge.Jex" Version="1.1.2" />
   </ItemGroup>
 </Project>

@@ -14,14 +14,14 @@
     <Compile Include="..\Scripts.API\**\*.cs" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="KoreForge.Logging" Version="1.0.2-alpha" />
-    <PackageReference Include="KoreForge.Logging.Serilog" Version="1.0.2-alpha" />
-    <PackageReference Include="KoreForge.AppLifecycle" Version="1.0.2-alpha" />
-    <PackageReference Include="KoreForge.Metrics.AspNet" Version="1.0.2-alpha" />
-    <PackageReference Include="KoreForge.Processing" Version="1.0.2-alpha" />
-    <PackageReference Include="KoreForge.Settings" Version="1.0.2-alpha" />
-    <PackageReference Include="KoreForge.Settings.Abstractions" Version="1.0.2-alpha" />
-    <PackageReference Include="KoreForge.Web.HealthChecks" Version="1.0.2-alpha" />
+    <PackageReference Include="KoreForge.Logging" Version="1.1.2" />
+    <PackageReference Include="KoreForge.Logging.Serilog" Version="1.1.2" />
+    <PackageReference Include="KoreForge.AppLifecycle" Version="1.1.2" />
+    <PackageReference Include="KoreForge.Metrics.AspNet" Version="1.1.2" />
+    <PackageReference Include="KoreForge.Processing" Version="1.1.2" />
+    <PackageReference Include="KoreForge.Settings" Version="1.1.2" />
+    <PackageReference Include="KoreForge.Settings.Abstractions" Version="1.1.2" />
+    <PackageReference Include="KoreForge.Web.HealthChecks" Version="1.1.2" />
     <PackageReference Include="Confluent.Kafka" Version="2.8.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
     <PackageReference Include="Microsoft.Data.SqlClient" Version="6.1.4" />
@@ -30,16 +30,16 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="10.0.0" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Event.Data" VersionOverride="1.0.2-alpha" />
-    <PackageReference Include="Event.Streaming.Processing" VersionOverride="1.0.2-alpha" />
-    <PackageReference Include="Event.Streaming.In" VersionOverride="1.0.2-alpha" />
-    <PackageReference Include="Event.Streaming.Out" VersionOverride="1.0.2-alpha" />
-    <PackageReference Include="KoreForge.Kafka.Configuration" Version="1.0.2-alpha" />
-    <PackageReference Include="KoreForge.Kafka.Consumer" Version="1.0.2-alpha" />
-    <PackageReference Include="KoreForge.Jex" Version="1.0.2-alpha" />
-    <PackageReference Include="KoreForge.Scripts.Abstractions" Version="1.0.2-alpha" />
-    <PackageReference Include="KoreForge.Scripts.Core" Version="1.0.2-alpha" />
-    <PackageReference Include="KoreForge.Scripts.Data" Version="1.0.2-alpha" />
-    <PackageReference Include="KoreForge.Scripts.AspNet" Version="1.0.2-alpha" />
+    <PackageReference Include="Event.Data" VersionOverride="1.1.2" />
+    <PackageReference Include="Event.Streaming.Processing" VersionOverride="1.1.2" />
+    <PackageReference Include="Event.Streaming.In" VersionOverride="1.1.2" />
+    <PackageReference Include="Event.Streaming.Out" VersionOverride="1.1.2" />
+    <PackageReference Include="KoreForge.Kafka.Configuration" Version="1.1.2" />
+    <PackageReference Include="KoreForge.Kafka.Consumer" Version="1.1.2" />
+    <PackageReference Include="KoreForge.Jex" Version="1.1.2" />
+    <PackageReference Include="KoreForge.Scripts.Abstractions" Version="1.1.2" />
+    <PackageReference Include="KoreForge.Scripts.Core" Version="1.1.2" />
+    <PackageReference Include="KoreForge.Scripts.Data" Version="1.1.2" />
+    <PackageReference Include="KoreForge.Scripts.AspNet" Version="1.1.2" />
   </ItemGroup>
 </Project>
