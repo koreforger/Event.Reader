@@ -9,6 +9,8 @@
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <NoWarn>1591</NoWarn>
     <KoreForgeAppLifecycleDocsTargetRoot>$(MSBuildProjectDirectory)\artifacts\KoreForge.AppLifecycle\</KoreForgeAppLifecycleDocsTargetRoot>
+    <IsPackable>true</IsPackable>
+    <PackageId>EventReader</PackageId>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="..\Scripts.API\**\*.cs" />
